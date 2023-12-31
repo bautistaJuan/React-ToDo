@@ -1,9 +1,15 @@
-import { useState } from "react";
+import React, { useState, useEffect } from "react";
 import { Todo } from "./todo";
 import styles from "../css/todo-app.module.css";
+
 export default function TodoApp() {
   const [title, addTitle] = useState("");
-  const [allTodos, setNewListTodo] = useState([]);
+  const [allTodos, setAllTodos] = useState([]);
+
+  useEffect(() => {
+    const loadedTasks = loadTasksFromLocalStorage();
+    setAllTodos(loadedTasks);
+  }, []);
 
   function addTask(e = HTMLInputElement) {
     e.preventDefault();
@@ -19,25 +25,36 @@ export default function TodoApp() {
         title,
         complete: false,
       };
-      const copy = [...allTodos];
-      copy.unshift(newTodo);
-      setNewListTodo(copy);
-
+      setNewListTodo([...allTodos, newTodo]);
       addTitle("");
     }
   }
-  function handleUpdate(id, value) {
-    const copy = [...allTodos];
-    const item = copy.find(items => items.id === id);
-    // Al encontrar el ID que se esta modificando (Llega como parametro) modifica solamente el title (Llega como parametro)
-    item.title = value;
-    // Actualiza las tareas editadas.
-    setNewListTodo(copy);
-  }
-  function handleDelete(id) {
-    const todos = allTodos.filter(t => t.id !== id);
 
-    setNewListTodo(todos);
+  function handleUpdate(id, value, complete) {
+    setNewListTodo(
+      allTodos.map(todo =>
+        todo.id === id ? { ...todo, title: value, isComplete: complete } : todo
+      )
+    );
+  }
+
+  function handleDelete(id) {
+    setNewListTodo(allTodos.filter(todo => todo.id !== id));
+  }
+
+  function loadTasksFromLocalStorage() {
+    const storedTasks = localStorage.getItem("todo-app-tasks");
+    try {
+      return storedTasks ? JSON.parse(storedTasks) : [];
+    } catch (error) {
+      console.error("Error loading tasks from localStorage:", error);
+      return [];
+    }
+  }
+
+  function setNewListTodo(newTodos) {
+    localStorage.setItem("todo-app-tasks", JSON.stringify(newTodos));
+    setAllTodos(newTodos);
   }
   return (
     <div className={styles.todoAppContainer}>

@@ -43,7 +43,8 @@
 }
 
 .inputText {
-    min-width: 300px;
+    outline: none;
+    width: 300px;
     border: solid 1px black;
     border-radius: 4px;
     height: 41px;
@@ -59,5 +60,4 @@
     text-align: start;
     padding: 8px;
     margin-top: 20px;
-    border: solid;
 }

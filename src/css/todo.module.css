@@ -2,6 +2,7 @@
 .formContainer {
     display: flex;
     justify-content: space-between;
+    border: solid 1px;
     border-radius: 8px;
     margin-bottom: 10px;
     font-size: 28px;
@@ -12,14 +13,53 @@
     min-height: 120px;
 }
 
+.wou {
+    background-color: cadetblue;
+    border: solid;
+}
+
+.formContainer {
+    align-items: center;
+    border: solid;
+}
+
 .title {
+    display: flex;
+    margin: 5px 5px 0 8px;
+    width: 100%;
+    text-align: start;
     word-break: break-all;
     /* line-break: anywhere; */
     padding: 2px;
 }
 
-.buttonsEdit {
+
+
+
+.inputEdit {
+    outline: none;
+    border: none;
+    background-color: transparent;
+    font-size: 28px;
+    font-weight: 400;
+    font-size: 25px;
+    height: 130px;
+    width: 290px;
+    /* text-decoration: line-through; */
+}
+
+.saveBtn {
+    border: none;
     display: flex;
-    flex-direction: column-reverse;
-    border: solid;
+    justify-content: center;
+    align-items: center;
+    background-color: transparent;
+    height: 40px;
+    width: 50px;
+    border: solid 1px;
+    border-radius: 10px;
+    font-weight: 500;
+    font-size: 30px;
+    margin-left: 5px;
+
 }
