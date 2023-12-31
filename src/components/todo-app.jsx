@@ -1,12 +1,13 @@
 import { useState } from "react";
 import { Todo } from "./todo";
+import styles from "../css/todo-app.module.css";
 export default function TodoApp() {
   const [title, addTitle] = useState("");
   const [allTodos, setNewListTodo] = useState([]);
 
-  function addTask(e) {
+  function addTask(e = HTMLInputElement) {
     e.preventDefault();
-    const newTask = document.querySelector(".inputText");
+    const newTask = document.querySelector("#inputTitle");
     addTitle(newTask.value);
   }
 
@@ -39,23 +40,28 @@ export default function TodoApp() {
     setNewListTodo(todos);
   }
   return (
-    <div className="todoAppContainer">
-      <form className="formEdit">
+    <div className={styles.todoAppContainer}>
+      <h1 className={styles.h1}>Todo App</h1>
+      <form className={styles.formContainer}>
         <input
           onChange={addTask}
           type="text"
-          className="inputText"
+          className={styles.inputText}
+          id="inputTitle"
           value={title}
+          autoFocus={true}
+          placeholder="Agrega tu nueva tarea"
         />
-        <input
+        <button
           onClick={handlesubmit}
           type="submit"
-          value="Crear Tarea"
-          className="inputBtn"
-        />
+          className={styles.inputBtn}
+        >
+          +
+        </button>
       </form>
-      <div>
-        <div className="postTasks">
+      <div className={styles.postTasksContainer}>
+        <div className={styles.postTasks}>
           {allTodos.map(task => (
             <Todo
               key={task.id}

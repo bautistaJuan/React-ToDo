@@ -1,8 +1,8 @@
 import TodoApp from "./components/todo-app";
-import "./css/index.css";
+import styles from "./css/index.module.css";
 function App() {
   return (
-    <div className="app-container">
+    <div className={styles.appContainer}>
       <TodoApp />
     </div>
   );

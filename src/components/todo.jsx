@@ -1,5 +1,5 @@
 import { useState } from "react";
-import "./../css/style-todo.css";
+import styles from "./../css/todo.module.css";
 
 function Todo({ task, upDate, onDelete }) {
   // Funciona como un interruptor para poder habilitar la opcion de editar
@@ -23,7 +23,7 @@ function Todo({ task, upDate, onDelete }) {
       setEdit(false);
     };
     return (
-      <form className="formContainer" onClick={handlesubmit}>
+      <form className={styles.formContainer} onClick={handlesubmit}>
         <input
           className="inputEdit"
           type="text"
@@ -40,9 +40,9 @@ function Todo({ task, upDate, onDelete }) {
   //  // // // //
   function Card() {
     return (
-      <div className="cardContainer">
-        <span className="title"> {task.title} </span>
-        <div className="buttonsEdit">
+      <div className={styles.cardContainer}>
+        <span className={styles.title}> {task.title} </span>
+        <div className={styles.buttonsEdit}>
           <button
             onClick={() => {
               setEdit(true);

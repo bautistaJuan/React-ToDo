@@ -1,0 +1,25 @@
+.cardContainer,
+.formContainer {
+    display: flex;
+    justify-content: space-between;
+    border-radius: 8px;
+    margin-bottom: 10px;
+    font-size: 28px;
+    font-weight: 400;
+    padding: 10px;
+    background-color: hsl(187.5deg 38.1% 83.53%);
+    box-shadow: 10px 10px 10px rgba(3, 3, 3, 0.562);
+    min-height: 120px;
+}
+
+.title {
+    word-break: break-all;
+    /* line-break: anywhere; */
+    padding: 2px;
+}
+
+.buttonsEdit {
+    display: flex;
+    flex-direction: column-reverse;
+    border: solid;
+}
