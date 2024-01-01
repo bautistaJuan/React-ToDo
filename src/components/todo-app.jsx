@@ -1,6 +1,6 @@
-import React, { useState, useEffect } from "react";
 import { Todo } from "./todo";
 import styles from "../css/todo-app.module.css";
+import React, { useState, useEffect } from "react";
 
 export default function TodoApp() {
   const [title, addTitle] = useState("");
@@ -11,7 +11,7 @@ export default function TodoApp() {
     setAllTodos(loadedTasks);
   }, []);
 
-  function addTask(e = HTMLInputElement) {
+  function addTask(e) {
     e.preventDefault();
     const newTask = document.querySelector("#inputTitle");
     addTitle(newTask.value);

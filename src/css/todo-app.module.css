@@ -1,7 +1,6 @@
 .todoAppContainer {
     margin: 0 auto;
     width: 100%;
-    text-align: center;
 }
 
 .h1 {
@@ -12,7 +11,6 @@
 }
 
 .formContainer {
-    height: 50px;
     padding: 5px;
     margin-top: 10px;
     display: flex;
@@ -24,6 +22,7 @@
 
 
 .inputBtn {
+    cursor: pointer;
     font-weight: bold;
     font-size: 32px;
     border: none;
@@ -35,6 +34,14 @@
     display: flex;
     align-items: center;
     justify-content: center;
+}
+
+@media (min-width:500px) {
+    .inputBtn {
+        font-size: 39px;
+        width: 50px;
+        height: 50px;
+    }
 }
 
 .inputBtn:active {
@@ -52,12 +59,32 @@
     padding: 8px;
 }
 
+@media (min-width:500px) {
+    .inputText {
+        width: 500px;
+        height: 50px;
+        font-size: 25px;
+    }
+}
+
 /* Cards */
 
 .postTasksContainer {
     display: flex;
     flex-direction: column;
-    text-align: start;
     padding: 8px;
-    margin-top: 20px;
+    margin-top: 30px;
+}
+
+@media (min-width:700px) {
+
+    .postTasks {
+        display: grid;
+        grid-template-columns: repeat(3, 1fr);
+        align-items: center;
+        text-align: start;
+        padding: 8px;
+        margin-top: 20px;
+    }
+
 }

@@ -5,14 +5,7 @@ import styleButton from "./../css/button.module.css";
 function Todo({ task, upDate, onDelete }) {
   // Funciona como un interruptor para poder habilitar la opcion de editar
   const [isEdit, setEdit] = useState(false);
-  const [iscompleted, isIncomplete] = useState(false);
 
-  const chageTheTitleState = e => {
-    let clickToAddNewClassName = document.querySelector("#checkComplete");
-    const titleWithLine = document.querySelector("#title");
-    isIncomplete(!iscompleted);
-    // upDate(task.id, task.title, isCompleted); // Avisa al componente padre
-  };
   // Esta funcion permite que edites la tarea que creaste.
   function FormEdit() {
     const [newTitle, setNewTitle] = useState(task.title);
@@ -48,11 +41,12 @@ function Todo({ task, upDate, onDelete }) {
   }
   //  // // // //
   function Card() {
+    const text = task.title;
+    const newText = text.slice(0, 1).toUpperCase() + text.slice(1);
     return (
       <div className={styles.cardContainer}>
         <span id="title" className={styles.title}>
-          {" "}
-          {task.title}{" "}
+          {newText}
         </span>
         <div className={styleButton.buttonsEdit}>
           <button
@@ -77,8 +71,6 @@ function Todo({ task, upDate, onDelete }) {
             type="checkbox"
             id="checkComplete"
             className={styleButton.checkBox}
-            onChange={chageTheTitleState}
-            checked={iscompleted}
           ></input>
         </div>
       </div>
@@ -87,7 +79,9 @@ function Todo({ task, upDate, onDelete }) {
 
   //   //
   return (
-    <div className="containerTodo">{isEdit ? <FormEdit /> : <Card />} </div>
+    <div className={styles.containerTodo}>
+      {isEdit ? <FormEdit /> : <Card />}{" "}
+    </div>
   );
 }
 export { Todo };

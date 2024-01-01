@@ -1,3 +1,10 @@
+.containerTodo {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    align-items: center;
+}
+
 .cardContainer,
 .formContainer {
     display: flex;
@@ -8,14 +15,10 @@
     font-size: 28px;
     font-weight: 400;
     padding: 10px;
-    background-color: hsl(187.5deg 38.1% 83.53%);
+    background-color: hsl(60, 87%, 63%);
     box-shadow: 10px 10px 10px rgba(3, 3, 3, 0.562);
     min-height: 120px;
-}
-
-.wou {
-    background-color: cadetblue;
-    border: solid;
+    min-width: 400px;
 }
 
 .formContainer {
